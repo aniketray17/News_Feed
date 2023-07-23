@@ -57,6 +57,12 @@ public class SocialNetwork {
     }
 
     public static void main(String[] args) {
-        
+        SocialNetwork socialNetwork = new SocialNetwork();
+        socialNetwork.signUp("ramesh_1", "Ramesh Kumar", "ramesh@1234");
+        socialNetwork.signUp("suresh_1", "Suresh Kumar", "suresh@1234");
+        User loggedInUser = socialNetwork.login("ramesh_1", "ramesh@1234");
+        if(loggedInUser != null) {
+            System.out.println("Welcome, " + loggedInUser.getUsername() + " !");
+        }
     }
 }
