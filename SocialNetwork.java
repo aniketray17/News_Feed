@@ -3,6 +3,7 @@
  */
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 class User {
     private String userId;
@@ -58,11 +59,31 @@ public class SocialNetwork {
 
     public static void main(String[] args) {
         SocialNetwork socialNetwork = new SocialNetwork();
-        socialNetwork.signUp("ramesh_1", "Ramesh Kumar", "ramesh@1234");
-        socialNetwork.signUp("suresh_1", "Suresh Kumar", "suresh@1234");
-        User loggedInUser = socialNetwork.login("ramesh_1", "ramesh@1234");
-        if(loggedInUser != null) {
-            System.out.println("Welcome, " + loggedInUser.getUsername() + " !");
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.println("Enter the command(signup/login/exit):");
+            String command = scanner.next();
+            if(command.equals("signup")) {
+                System.out.println("Enter User ID:");
+                String userId = scanner.next();
+                System.out.println("Enter Username:");
+                String username = scanner.next();
+                System.out.println("Enter password:");
+                String password = scanner.next();
+                socialNetwork.signUp(userId, username, password);
+            } else if(command.equals("login")) {
+                System.out.println("Enter User ID:");
+                String userId = scanner.next();
+                System.out.println("Enter password:");
+                String password = scanner.next();
+                socialNetwork.login(userId, password);
+            } else if(command.equals("exit")) {
+                System.out.println("Exiting Program...");
+                break;
+            } else {
+                System.out.println("Invalid command. Please try again.");
+            }
         }
+        scanner.close();
     }
 }
