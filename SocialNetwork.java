@@ -8,7 +8,8 @@ import java.util.Scanner;
 class User {
     //this is a sample change
     private String userId;
-
+    
+    //this is a username string
     private String username;
 
     private String password;
