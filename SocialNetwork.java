@@ -6,14 +6,24 @@ import java.util.Map;
 import java.util.Scanner;
 
 class User {
+    //this is for userId
     private String userId;
+
+    //store the username
     private String username;
+
+    //storing the password
     private String password;
+
     public User(String userId,String username,String password) {
+
         this.userId = userId;
+
         this.username = username;
+
         this.password = password;
     }
+
     public String getUserId() {
         return userId;
     }
